@@ -1,11 +1,12 @@
+#prj Creator V 1.0 by NemerMore
+
+
 import os
 import shutil
 import time
-#ADD COMMENT
+
 
 add = 1;
-print('Enter PROJECT NAME')
-prj = input()
 
 
 def createFolder(directory):
@@ -15,25 +16,24 @@ def createFolder(directory):
     except OSError:
         print ('Error: Creating directory. ' +  directory)
 
-
-createFolder('../' + prj + '/ARTWORKS - MASTER/FROM AGENCY-CLIENT')
-createFolder('../' + prj + '/EXPORT/DATE')
-createFolder('../' + prj + '/EXPORT/FOR CG')
-createFolder('../' + prj + '/EXPORT/FOR GRADING')
-
-
-createFolder('../' + prj + '/MATS - MASTER/AUDIO/DATE')
-createFolder('../' + prj + '/MATS - MASTER/CONVERTED/DATE')
-createFolder('../' + prj + '/MATS - MASTER/GRADED/DATE')
-createFolder('../' + prj + '/MATS - MASTER/RAW')
+def mainEditor():
+	createFolder('../' + prj + '/ARTWORKS - MASTER/FROM AGENCY-CLIENT')
+	createFolder('../' + prj + '/EXPORT/DATE')
+	createFolder('../' + prj + '/EXPORT/FOR CG')
+	createFolder('../' + prj + '/EXPORT/FOR GRADING')
 
 
-createFolder('../' + prj + '/PR')
-dest = '../' +  prj + '/PR/' + prj + '_001.prproj'
-shutil.copy2('./TEMPLATE/PR_TEMPLATE.prproj', dest )
+	createFolder('../' + prj + '/MATS - MASTER/AUDIO/DATE')
+	createFolder('../' + prj + '/MATS - MASTER/CONVERTED/DATE')
+	createFolder('../' + prj + '/MATS - MASTER/GRADED/DATE')
+	createFolder('../' + prj + '/MATS - MASTER/RAW')
 
-createFolder('../' + prj + '/RELEASE')
 
+	createFolder('../' + prj + '/PR')
+	dest = '../' +  prj + '/PR/' + prj + '_001.prproj'
+	shutil.copy2('./TEMPLATE/PR_TEMPLATE.prproj', dest )
+
+	createFolder('../' + prj + '/RELEASE')
 
 
 def addARTIST(p):
@@ -65,6 +65,15 @@ def addARTIST(p):
 	createFolder( '../' + p + '/BACKROOM/' +  '/ONLINE_MATS/OFFLINE')
 
 
+
+print('Enter PROJECT NAME')
+prj = input()
+print('Are you the main Editor? Press [ Y ] to ADD, Press [ N ] to Exit ')
+ME = input()
+
+if( ME == 'Y'):
+	mainEditor()
+
 while True:
 	addARTIST(prj)
 	print('Add ARTIST? Press [ Y ] to ADD, Press [ N ] to Exit ')
@@ -73,6 +82,8 @@ while True:
 		break
 
 print('Folders for Project ' + prj + 'has been Created')
+
+
 
 	
 
